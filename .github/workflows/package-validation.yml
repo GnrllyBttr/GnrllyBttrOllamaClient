@@ -1,0 +1,70 @@
+name: Package Validation
+
+on:
+  workflow_call:
+    inputs:
+      dry_run:
+        required: true
+        type: boolean
+        description: "Whether to run in dry-run mode"
+    secrets:
+      PUB_ACCESS_TOKEN:
+        required: true
+      PUB_REFRESH_TOKEN:
+        required: true
+      CODECOV_TOKEN:
+        required: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      
+      - name: Setup FVM
+        uses: kuhnroyal/flutter-fvm-config-action/setup@v3
+      
+      - name: Config FVM
+        uses: kuhnroyal/flutter-fvm-config-action/config@v3
+        id: fvm
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2.18.0
+        with:
+          flutter-version: ${{ steps.fvm.outputs.FLUTTER_VERSION }}
+          channel: ${{ steps.fvm.outputs.FLUTTER_CHANNEL }}
+          cache: true
+      
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Install lcov
+        run: sudo apt-get install lcov
+        
+      - name: Format check
+        run: dart format --output=none --set-exit-if-changed .
+        
+      - name: Analyze
+        run: flutter analyze --fatal-infos --fatal-warnings
+        
+      - name: Run tests with coverage
+        run: |
+          flutter test --coverage
+          lcov --remove coverage/lcov.info 'lib/**/*.g.dart' 'lib/**/*.freezed.dart' -o coverage/lcov.info --ignore-errors unused
+        
+      - name: Upload coverage
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          
+      - name: Publish Check
+        id: publish
+        uses: k-paxian/dart-package-publisher@v1.6
+        with:
+          accessToken: ${{ secrets.PUB_ACCESS_TOKEN }}
+          refreshToken: ${{ secrets.PUB_REFRESH_TOKEN }}
+          flutterBranch: main
+          dryRunOnly: ${{ inputs.dry_run }}
+          skipTests: true
