@@ -1,0 +1,16 @@
+pre-commit:
+  parallel: true
+  commands:
+    sort-imports:
+      files: git diff --name-only --cached | grep ".*\.dart$"
+      run: fvm dart run import_sorter:main {files} && git add {files}
+    lint:
+      files: git diff --name-only --cached | grep ".*\.dart$"
+      run: fvm flutter analyze {files}
+    format:
+      files: git diff --name-only --cached | grep ".*\.dart$"
+      run: fvm dart format {files} && git add {files}
+    pubspec-check:
+      run: fvm flutter pub get
+    coverage:
+      run: fvm flutter test --coverage
