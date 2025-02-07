@@ -1,0 +1,78 @@
+name: Dry Run
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
+
+permissions:
+  pull-requests: write
+  issues: write
+  contents: read
+
+jobs:
+  validate_package:
+    name: Validate Package
+    uses: ./.github/workflows/package-validation.yml
+    with:
+      dry_run: true
+    secrets:
+      PUB_ACCESS_TOKEN: ${{ secrets.PUB_ACCESS_TOKEN }}
+      PUB_REFRESH_TOKEN: ${{ secrets.PUB_REFRESH_TOKEN }}
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+  comment_pr:
+    needs: validate_package
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Comment PR
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const status = '${{ needs.validate_package.result }}';
+            console.log('Validation status:', status);
+            
+            const comment = [
+              '## Package Validation Results',
+              '',
+              `Status: ${status === 'success' ? '✅ Passed' : '❌ Failed'}`,
+              '',
+              'This validation was performed as a dry run and includes:',
+              '- Package structure verification',
+              '- Code formatting check',
+              '- Unit tests execution',
+              '- Code coverage analysis',
+              '',
+              status === 'success' 
+                ? 'All validation checks passed successfully.'
+                : 'Some validation checks failed. Please review the workflow logs for details.',
+              '',
+              `_Last updated: ${new Date().toISOString()}_`
+            ].join('\n');
+            
+            try {
+              // Create a new comment every time
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: comment
+              });
+              
+              console.log('Successfully created comment');
+            } catch (error) {
+              console.error('Error:', {
+                message: error.message,
+                status: error.status,
+                response: error.response,
+                request: error.request
+              });
+              throw error;
+            }
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true

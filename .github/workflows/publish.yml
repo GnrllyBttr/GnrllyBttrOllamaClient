@@ -1,0 +1,36 @@
+name: Publish to pub.dev
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+*'
+
+jobs:
+  version-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify tag version matches pubspec
+        run: |
+          TAG_VERSION=$(echo ${{ github.ref_name }} | sed 's/^v//')
+          PUBSPEC_VERSION=$(grep 'version: ' pubspec.yaml | sed 's/version: //')
+          if [ "$TAG_VERSION" != "$PUBSPEC_VERSION" ]; then
+            echo "::error::Tag version ($TAG_VERSION) doesn't match pubspec version ($PUBSPEC_VERSION)"
+            exit 1
+          fi
+
+  publish:
+    needs: version-check
+    permissions:
+      id-token: write
+    uses: ./.github/workflows/package-validation.yml
+    with:
+      dry_run: false
+    secrets:
+      PUB_ACCESS_TOKEN: ${{ secrets.PUB_ACCESS_TOKEN }}
+      PUB_REFRESH_TOKEN: ${{ secrets.PUB_REFRESH_TOKEN }}
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
