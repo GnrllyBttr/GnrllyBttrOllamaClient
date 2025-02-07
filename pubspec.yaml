@@ -1,5 +1,5 @@
 name: gnrllybttr_ollama_client
-description: A starting point for Dart libraries or applications.
+description: A Dart client for interacting with the Ollama API. This package provides methods to interact with the Ollama API, including chat, model management, embeddings, and more.
 version: 1.0.0
 homepage: https://github.com/GenerallyBetter/GnrllyBttrOllamaClient
 
