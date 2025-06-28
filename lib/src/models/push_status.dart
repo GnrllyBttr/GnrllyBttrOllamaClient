@@ -18,7 +18,7 @@ part 'push_status.g.dart';
 /// );
 /// ```
 @freezed
-class PushStatus with _$PushStatus {
+abstract class PushStatus with _$PushStatus {
   const factory PushStatus({
     /// The current status of the push operation.
     @JsonKey(includeIfNull: false) String? status,

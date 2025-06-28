@@ -24,6 +24,7 @@ void main() {
               ),
             ]
           : null,
+      thinking: withAllFields ? faker.lorem.sentence() : null,
     );
   }
 
@@ -36,6 +37,8 @@ void main() {
       if (withAllFields) 'images': message.images,
       if (withAllFields)
         'tool_calls': message.toolCalls?.map((t) => t.toJson()).toList(),
+      if (withAllFields && message.thinking != null)
+        'thinking': message.thinking,
     };
   }
 
@@ -48,6 +51,7 @@ void main() {
         expect(message.content, isNotEmpty);
         expect(message.images, isNull);
         expect(message.toolCalls, isNull);
+        expect(message.thinking, isNull);
       });
     });
 
@@ -59,6 +63,7 @@ void main() {
         expect(message.content, isNotEmpty);
         expect(message.images, isNotEmpty);
         expect(message.toolCalls, isNotEmpty);
+        expect(message.thinking, isNotNull);
       });
     });
 
@@ -71,6 +76,7 @@ void main() {
         expect(message.content, equals(json['content']));
         expect(message.images, isNull);
         expect(message.toolCalls, isNull);
+        expect(message.thinking, isNull);
       });
 
       test('Then it should parse all fields correctly', () {
@@ -80,8 +86,11 @@ void main() {
         expect(message.role.toString().split('.').last, equals(json['role']));
         expect(message.content, equals(json['content']));
         expect(message.images, equals(json['images']));
-        expect(message.toolCalls?.map((t) => t.toJson()).toList(),
-            equals(json['tool_calls']));
+        expect(
+          message.toolCalls?.map((t) => t.toJson()).toList(),
+          equals(json['tool_calls']),
+        );
+        expect(message.thinking, equals(json['thinking']));
       });
     });
 
@@ -94,6 +103,7 @@ void main() {
         expect(json['content'], equals(message.content));
         expect(json.containsKey('images'), isFalse);
         expect(json.containsKey('tool_calls'), isFalse);
+        expect(json.containsKey('thinking'), isFalse);
       });
 
       test('Then it should serialize all fields correctly', () {
@@ -103,8 +113,11 @@ void main() {
         expect(json['role'], equals(message.role.toString().split('.').last));
         expect(json['content'], equals(message.content));
         expect(json['images'], equals(message.images));
-        expect(json['tool_calls'],
-            equals(message.toolCalls?.map((t) => t.toJson()).toList()));
+        expect(
+          json['tool_calls'],
+          equals(message.toolCalls?.map((t) => t.toJson()).toList()),
+        );
+        expect(json['thinking'], equals(message.thinking));
       });
     });
 
@@ -116,6 +129,7 @@ void main() {
           content: message1.content,
           images: message1.images,
           toolCalls: message1.toolCalls,
+          thinking: message1.thinking,
         );
 
         expect(message1, equals(message2));

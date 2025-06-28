@@ -9,17 +9,13 @@ void main() {
   final faker = Faker();
 
   DeleteModelRequest generateDeleteModelRequest() {
-    return DeleteModelRequest(
-      model: faker.lorem.word(),
-    );
+    return DeleteModelRequest(model: faker.lorem.word());
   }
 
   Map<String, dynamic> generateDeleteModelRequestJson() {
     final request = generateDeleteModelRequest();
 
-    return <String, dynamic>{
-      'model': request.model,
-    };
+    return <String, dynamic>{'model': request.model};
   }
 
   group('Given a DeleteModelRequest instance', () {
@@ -52,9 +48,7 @@ void main() {
     group('When comparing DeleteModelRequest instances', () {
       test('Then identical instances should be equal', () {
         final request1 = generateDeleteModelRequest();
-        final request2 = DeleteModelRequest(
-          model: request1.model,
-        );
+        final request2 = DeleteModelRequest(model: request1.model);
 
         expect(request1, equals(request2));
       });

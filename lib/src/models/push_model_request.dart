@@ -18,7 +18,7 @@ part 'push_model_request.g.dart';
 /// );
 /// ```
 @freezed
-class PushModelRequest with _$PushModelRequest {
+abstract class PushModelRequest with _$PushModelRequest {
   const factory PushModelRequest({
     /// The name of the model to push.
     required String model,

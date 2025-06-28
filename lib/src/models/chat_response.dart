@@ -24,7 +24,7 @@ part 'chat_response.g.dart';
 /// );
 /// ```
 @freezed
-class ChatResponse with _$ChatResponse {
+abstract class ChatResponse with _$ChatResponse {
   const factory ChatResponse({
     /// The name of the model used.
     required String model,

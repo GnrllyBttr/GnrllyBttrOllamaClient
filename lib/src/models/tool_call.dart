@@ -21,7 +21,7 @@ part 'tool_call.g.dart';
 /// );
 /// ```
 @freezed
-class ToolCall with _$ToolCall {
+abstract class ToolCall with _$ToolCall {
   const factory ToolCall({
     /// The function call associated with the tool.
     required FunctionCall function,

@@ -1,6 +1,6 @@
 name: gnrllybttr_ollama_client
 description: A Dart client for interacting with the Ollama API. This package provides methods to interact with the Ollama API, including chat, model management, embeddings, and more.
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/GnrllyBttr/GnrllyBttrOllamaClient
 repository: https://github.com/GnrllyBttr/GnrllyBttrOllamaClient
 issue_tracker: https://github.com/GnrllyBttr/GnrllyBttrOllamaClient/issues
@@ -12,30 +12,30 @@ topics:
   - ollama
 
 environment:
-  sdk: ^3.6.1
+  sdk: ^3.8.1
 
 dependencies:
-  dio: ^5.7.0
+  dio: ^5.8.0+1
 
-  freezed_annotation: ^2.4.4
+  freezed_annotation: ^3.0.0
 
   json_annotation: ^4.9.0
 
 dev_dependencies:
-  build_runner: ^2.4.14
+  build_runner: ^2.5.4
 
   faker: ^2.2.0
-  freezed: ^2.5.8
+  freezed: ^3.0.6
 
   import_sorter: ^4.6.0
 
-  json_serializable: ^6.9.3
+  json_serializable: ^6.9.5
 
-  lints: ^5.1.1
+  lints: ^6.0.0
 
-  mockito: ^5.4.5
+  mockito: ^5.4.6
 
-  test: ^1.25.14
+  test: ^1.26.2
 
 import_sorter:
   comments: true

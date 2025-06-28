@@ -20,7 +20,7 @@ part 'model_details.g.dart';
 /// );
 /// ```
 @freezed
-class ModelDetails with _$ModelDetails {
+abstract class ModelDetails with _$ModelDetails {
   const factory ModelDetails({
     /// The format of the model.
     required String format,

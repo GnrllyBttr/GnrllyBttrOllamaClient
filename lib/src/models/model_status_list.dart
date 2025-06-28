@@ -28,7 +28,7 @@ part 'model_status_list.g.dart';
 /// );
 /// ```
 @freezed
-class ModelStatusList with _$ModelStatusList {
+abstract class ModelStatusList with _$ModelStatusList {
   const factory ModelStatusList({
     /// The list of model statuses.
     required List<ModelStatus> models,

@@ -27,7 +27,7 @@ class GnrllyBttrOllamaClient {
   /// - [restService]: An optional [GnrllyBttrRestService] implementation. If not provided,
   ///   a default [DioService] will be used.
   GnrllyBttrOllamaClient({GnrllyBttrRestService? restService})
-      : _restService = restService ?? DioService();
+    : _restService = restService ?? DioService();
 
   final GnrllyBttrRestService _restService;
 
@@ -541,9 +541,7 @@ class GnrllyBttrOllamaClient {
   ///
   /// print(response);
   /// ```
-  Future<VersionResponse> getVersion({
-    HttpCancelToken? cancelToken,
-  }) async {
+  Future<VersionResponse> getVersion({HttpCancelToken? cancelToken}) async {
     try {
       final response = await _restService.get(
         path: '/version',
@@ -572,9 +570,7 @@ class GnrllyBttrOllamaClient {
   ///
   /// print(response);
   /// ```
-  Future<ModelList> listModels({
-    HttpCancelToken? cancelToken,
-  }) async {
+  Future<ModelList> listModels({HttpCancelToken? cancelToken}) async {
     try {
       final response = await _restService.get(
         path: '/tags',
@@ -735,9 +731,7 @@ class GnrllyBttrOllamaClient {
         path: '/blobs/$digest',
         data: data,
         cancelToken: cancelToken,
-        options: HttpOptions(
-          responseType: 'application/octet-stream',
-        ),
+        options: HttpOptions(responseType: 'application/octet-stream'),
       );
     } catch (e) {
       throw BlobPushFailedException(e.toString());
@@ -859,9 +853,7 @@ class GnrllyBttrOllamaClient {
     try {
       final response = await _restService.post(
         path: '/show',
-        data: <String, String>{
-          'model': modelName,
-        },
+        data: <String, String>{'model': modelName},
         cancelToken: cancelToken,
       );
 

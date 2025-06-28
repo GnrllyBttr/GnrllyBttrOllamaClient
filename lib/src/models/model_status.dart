@@ -25,7 +25,7 @@ part 'model_status.g.dart';
 /// );
 /// ```
 @freezed
-class ModelStatus with _$ModelStatus {
+abstract class ModelStatus with _$ModelStatus {
   const factory ModelStatus({
     /// The name of the model.
     required String name,

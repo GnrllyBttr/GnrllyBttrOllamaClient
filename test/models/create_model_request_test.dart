@@ -14,14 +14,10 @@ void main() {
       model: faker.lorem.word(),
       from: withAllFields ? faker.lorem.word() : null,
       files: withAllFields
-          ? <String, String>{
-              faker.lorem.word(): faker.lorem.sentence(),
-            }
+          ? <String, String>{faker.lorem.word(): faker.lorem.sentence()}
           : null,
       adapters: withAllFields
-          ? <String, String>{
-              faker.lorem.word(): faker.lorem.sentence(),
-            }
+          ? <String, String>{faker.lorem.word(): faker.lorem.sentence()}
           : null,
       template: withAllFields ? faker.lorem.word() : null,
       license: withAllFields ? faker.lorem.word() : null,
@@ -60,9 +56,7 @@ void main() {
       if (withAllFields) 'parameters': request.parameters,
       if (withAllFields)
         'messages': request.messages
-            ?.map(
-              (message) => message.toJson(),
-            )
+            ?.map((message) => message.toJson())
             .toList(),
       if (withAllFields) 'stream': request.stream,
       if (withAllFields) 'quantize': request.quantize,
@@ -136,8 +130,10 @@ void main() {
         expect(request.license, equals(json['license']));
         expect(request.system, equals(json['system']));
         expect(request.parameters, equals(json['parameters']));
-        expect(request.messages?.map((m) => m.toJson()).toList(),
-            equals(json['messages']));
+        expect(
+          request.messages?.map((m) => m.toJson()).toList(),
+          equals(json['messages']),
+        );
         expect(request.stream, equals(json['stream']));
         expect(request.quantize, equals(json['quantize']));
       });

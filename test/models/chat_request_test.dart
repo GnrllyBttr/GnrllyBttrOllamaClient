@@ -35,17 +35,11 @@ void main() {
           : null,
       format: withAllFields ? faker.lorem.word() : null,
       options: withAllFields
-          ? ModelOptions(
-              temperature: faker.randomGenerator.decimal(),
-            )
+          ? ModelOptions(temperature: faker.randomGenerator.decimal())
           : null,
       stream: withAllFields ? faker.randomGenerator.boolean() : null,
       keepAlive: withAllFields
-          ? faker.randomGenerator
-              .integer(
-                100,
-              )
-              .toString()
+          ? faker.randomGenerator.integer(100).toString()
           : null,
     );
   }
@@ -55,11 +49,7 @@ void main() {
 
     return <String, dynamic>{
       'model': request.model,
-      'messages': request.messages
-          .map(
-            (message) => message.toJson(),
-          )
-          .toList(),
+      'messages': request.messages.map((message) => message.toJson()).toList(),
       if (withAllFields)
         'tools': request.tools?.map((t) => t.toJson()).toList(),
       if (withAllFields) 'format': request.format,

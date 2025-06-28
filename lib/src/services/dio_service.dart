@@ -27,12 +27,15 @@ class DioService extends GnrllyBttrRestService {
   ///   with base URL `'http://localhost:11434/api'`, connection timeout of 10 seconds,
   ///   and receive timeout of 300 seconds will be used.
   DioService({Dio? dio})
-      : _dio = dio ??
-            Dio(BaseOptions(
+    : _dio =
+          dio ??
+          Dio(
+            BaseOptions(
               baseUrl: 'http://localhost:11434/api',
               connectTimeout: const Duration(seconds: 10),
               receiveTimeout: const Duration(seconds: 300),
-            ));
+            ),
+          );
 
   /// The Dio HTTP client used for making requests.
   final Dio _dio;
@@ -216,9 +219,9 @@ class DioService extends GnrllyBttrRestService {
       path,
       data: data,
       queryParameters: queryParameters,
-      options: _toDioOptions(options)?.copyWith(
-        responseType: ResponseType.stream,
-      ),
+      options: _toDioOptions(
+        options,
+      )?.copyWith(responseType: ResponseType.stream),
       cancelToken: _toDioCancelToken(cancelToken),
     );
 

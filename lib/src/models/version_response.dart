@@ -15,7 +15,7 @@ part 'version_response.g.dart';
 /// );
 /// ```
 @freezed
-class VersionResponse with _$VersionResponse {
+abstract class VersionResponse with _$VersionResponse {
   const factory VersionResponse({
     /// The version of the API or service.
     required String version,

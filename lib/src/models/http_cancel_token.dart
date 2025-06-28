@@ -25,9 +25,7 @@ class HttpCancelToken {
   /// Creates an [HttpCancelToken].
   ///
   /// - [isCancelled]: Initial cancellation state. Defaults to `false`.
-  HttpCancelToken({
-    bool isCancelled = false,
-  }) : _isCancelled = isCancelled;
+  HttpCancelToken({bool isCancelled = false}) : _isCancelled = isCancelled;
 
   /// Internal flag to track whether the token has been cancelled.
   bool _isCancelled;

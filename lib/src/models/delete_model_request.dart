@@ -15,7 +15,7 @@ part 'delete_model_request.g.dart';
 /// );
 /// ```
 @freezed
-class DeleteModelRequest with _$DeleteModelRequest {
+abstract class DeleteModelRequest with _$DeleteModelRequest {
   const factory DeleteModelRequest({
     /// The name of the model to delete.
     required String model,

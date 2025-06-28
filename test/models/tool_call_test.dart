@@ -12,9 +12,7 @@ void main() {
     return ToolCall(
       function: FunctionCall(
         name: faker.lorem.word(),
-        arguments: <String, dynamic>{
-          'query': faker.lorem.word(),
-        },
+        arguments: <String, dynamic>{'query': faker.lorem.word()},
       ),
     );
   }
@@ -45,10 +43,7 @@ void main() {
         final json = generateToolCallJson();
         final toolCall = ToolCall.fromJson(json);
 
-        expect(
-          toolCall.function.name,
-          equals(json['function']['name']),
-        );
+        expect(toolCall.function.name, equals(json['function']['name']));
         expect(
           toolCall.function.arguments['query'],
           equals(json['function']['arguments']['query']),
@@ -61,10 +56,7 @@ void main() {
         final toolCall = generateToolCall();
         final json = toolCall.toJson();
 
-        expect(
-          json['function']['name'],
-          equals(toolCall.function.name),
-        );
+        expect(json['function']['name'], equals(toolCall.function.name));
         expect(
           json['function']['arguments']['query'],
           equals(toolCall.function.arguments['query']),
@@ -89,10 +81,7 @@ void main() {
         final toolCall1 = generateToolCall();
         final toolCall2 = generateToolCall();
 
-        expect(
-          toolCall1,
-          isNot(equals(toolCall2)),
-        );
+        expect(toolCall1, isNot(equals(toolCall2)));
       });
     });
   });

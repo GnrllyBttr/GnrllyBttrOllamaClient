@@ -32,12 +32,12 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
-            <td class="headerCovTableEntry">13</td>
-            <td class="headerCovTableEntry">13</td>
+            <td class="headerCovTableEntry">12</td>
+            <td class="headerCovTableEntry">12</td>
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2025-02-03 21:37:14</td>
+            <td class="headerValue">2025-06-28 18:23:10</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">-</td>
@@ -68,22 +68,21 @@
 <span id="L6"><span class="lineNum">       6</span>              : // JsonSerializableGenerator</span>
 <span id="L7"><span class="lineNum">       7</span>              : // **************************************************************************</span>
 <span id="L8"><span class="lineNum">       8</span>              : </span>
-<span id="L9"><span class="lineNum">       9</span> <span class="tlaGNC">           6 : _$ModelImpl _$$ModelImplFromJson(Map&lt;String, dynamic&gt; json) =&gt; _$ModelImpl(</span></span>
-<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">           3 :       name: json['name'] as String,</span></span>
-<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC">           6 :       modifiedAt: DateTime.parse(json['modified_at'] as String),</span></span>
-<span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">           6 :       size: (json['size'] as num).toInt(),</span></span>
-<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">           3 :       digest: json['digest'] as String,</span></span>
-<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">           6 :       details: ModelDetails.fromJson(json['details'] as Map&lt;String, dynamic&gt;),</span></span>
-<span id="L15"><span class="lineNum">      15</span>              :     );</span>
+<span id="L9"><span class="lineNum">       9</span> <span class="tlaGNC">           6 : _Model _$ModelFromJson(Map&lt;String, dynamic&gt; json) =&gt; _Model(</span></span>
+<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">           3 :   name: json['name'] as String,</span></span>
+<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC">           6 :   modifiedAt: DateTime.parse(json['modified_at'] as String),</span></span>
+<span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">           6 :   size: (json['size'] as num).toInt(),</span></span>
+<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">           3 :   digest: json['digest'] as String,</span></span>
+<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">           6 :   details: ModelDetails.fromJson(json['details'] as Map&lt;String, dynamic&gt;),</span></span>
+<span id="L15"><span class="lineNum">      15</span>              : );</span>
 <span id="L16"><span class="lineNum">      16</span>              : </span>
-<span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC">           3 : Map&lt;String, dynamic&gt; _$$ModelImplToJson(_$ModelImpl instance) =&gt;</span></span>
-<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">           3 :     &lt;String, dynamic&gt;{</span></span>
-<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">           3 :       'name': instance.name,</span></span>
-<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">           6 :       'modified_at': instance.modifiedAt.toIso8601String(),</span></span>
-<span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">           3 :       'size': instance.size,</span></span>
-<span id="L22"><span class="lineNum">      22</span> <span class="tlaGNC">           3 :       'digest': instance.digest,</span></span>
-<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC">           6 :       'details': instance.details.toJson(),</span></span>
-<span id="L24"><span class="lineNum">      24</span>              :     };</span>
+<span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC">           6 : Map&lt;String, dynamic&gt; _$ModelToJson(_Model instance) =&gt; &lt;String, dynamic&gt;{</span></span>
+<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">           3 :   'name': instance.name,</span></span>
+<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">           6 :   'modified_at': instance.modifiedAt.toIso8601String(),</span></span>
+<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">           3 :   'size': instance.size,</span></span>
+<span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">           3 :   'digest': instance.digest,</span></span>
+<span id="L22"><span class="lineNum">      22</span> <span class="tlaGNC">           6 :   'details': instance.details.toJson(),</span></span>
+<span id="L23"><span class="lineNum">      23</span>              : };</span>
         </pre>
               </td>
             </tr>
@@ -92,7 +91,7 @@
 
           <table width="100%" border=0 cellspacing=0 cellpadding=0>
             <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
-            <tr><td class="versionInfo">Generated by: <a href="https://github.com//linux-test-project/lcov" target="_parent">LCOV version 2.3-1</a></td></tr>
+            <tr><td class="versionInfo">Generated by: <a href="https://github.com//linux-test-project/lcov" target="_parent">LCOV version 2.3.1-1</a></td></tr>
           </table>
           <br>
 

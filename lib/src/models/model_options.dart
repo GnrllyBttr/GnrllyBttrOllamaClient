@@ -19,7 +19,7 @@ part 'model_options.g.dart';
 /// );
 /// ```
 @freezed
-class ModelOptions with _$ModelOptions {
+abstract class ModelOptions with _$ModelOptions {
   const factory ModelOptions({
     /// Seed for random number generation.
     @JsonKey(includeIfNull: false) int? seed,

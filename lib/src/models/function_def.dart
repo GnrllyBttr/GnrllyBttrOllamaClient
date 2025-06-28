@@ -17,7 +17,7 @@ part 'function_def.g.dart';
 /// );
 /// ```
 @freezed
-class FunctionDef with _$FunctionDef {
+abstract class FunctionDef with _$FunctionDef {
   const factory FunctionDef({
     /// The name of the function.
     required String name,

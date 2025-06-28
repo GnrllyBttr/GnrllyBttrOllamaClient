@@ -19,7 +19,7 @@ part 'embed_response.g.dart';
 /// );
 /// ```
 @freezed
-class EmbedResponse with _$EmbedResponse {
+abstract class EmbedResponse with _$EmbedResponse {
   const factory EmbedResponse({
     /// The name of the model used.
     required String model,

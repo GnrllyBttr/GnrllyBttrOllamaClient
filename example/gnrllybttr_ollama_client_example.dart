@@ -14,10 +14,7 @@ Future<void> main() async {
       request: ChatRequest(
         model: model,
         messages: <ChatMessage>[
-          ChatMessage(
-            role: ChatMessageRole.user,
-            content: prompt,
-          ),
+          ChatMessage(role: ChatMessageRole.user, content: prompt),
         ],
       ),
       cancelToken: cancelToken,
@@ -34,10 +31,7 @@ Future<void> main() async {
       request: ChatRequest(
         model: model,
         messages: <ChatMessage>[
-          ChatMessage(
-            role: ChatMessageRole.user,
-            content: prompt,
-          ),
+          ChatMessage(role: ChatMessageRole.user, content: prompt),
         ],
       ),
       cancelToken: cancelToken,
@@ -86,9 +80,7 @@ Future<void> main() async {
     final createModelStream = client.createModelStream(
       request: CreateModelRequest(
         model: model,
-        files: <String, String>{
-          'file1': 'path/to/file1',
-        },
+        files: <String, String>{'file1': 'path/to/file1'},
       ),
       cancelToken: cancelToken,
     );
@@ -103,9 +95,7 @@ Future<void> main() async {
   // Example for deleteModel
   try {
     await client.deleteModel(
-      request: DeleteModelRequest(
-        model: model,
-      ),
+      request: DeleteModelRequest(model: model),
       cancelToken: cancelToken,
     );
 
@@ -117,10 +107,7 @@ Future<void> main() async {
   // Example for embeddings
   try {
     final embedResponse = await client.embeddings(
-      request: EmbedRequest(
-        model: model,
-        input: prompt,
-      ),
+      request: EmbedRequest(model: model, input: prompt),
       cancelToken: cancelToken,
     );
 
@@ -132,10 +119,7 @@ Future<void> main() async {
   // Example for generate
   try {
     final generateResponse = await client.generate(
-      request: GenerateRequest(
-        model: model,
-        prompt: prompt,
-      ),
+      request: GenerateRequest(model: model, prompt: prompt),
       cancelToken: cancelToken,
     );
 
@@ -147,10 +131,7 @@ Future<void> main() async {
   // Example for generateStream
   try {
     final generateStream = client.generateStream(
-      request: GenerateRequest(
-        model: model,
-        prompt: prompt,
-      ),
+      request: GenerateRequest(model: model, prompt: prompt),
       cancelToken: cancelToken,
     );
 
@@ -167,9 +148,7 @@ Future<void> main() async {
 
   // Example for getVersion
   try {
-    final versionResponse = await client.getVersion(
-      cancelToken: cancelToken,
-    );
+    final versionResponse = await client.getVersion(cancelToken: cancelToken);
 
     print('Version: ${versionResponse.version}');
   } on GnrllyBttrOllamaClientException catch (e) {
@@ -178,9 +157,7 @@ Future<void> main() async {
 
   // Example for listModels
   try {
-    final modelList = await client.listModels(
-      cancelToken: cancelToken,
-    );
+    final modelList = await client.listModels(cancelToken: cancelToken);
 
     for (final model in modelList.models) {
       print('Model: ${model.name}');
@@ -205,9 +182,7 @@ Future<void> main() async {
   // Example for pullModelStream
   try {
     final pullModelStream = client.pullModelStream(
-      request: PullModelRequest(
-        model: model,
-      ),
+      request: PullModelRequest(model: model),
       cancelToken: cancelToken,
     );
 
@@ -221,9 +196,7 @@ Future<void> main() async {
   // Example for pushModelStream
   try {
     final pushModelStream = client.pushModelStream(
-      request: PushModelRequest(
-        model: model,
-      ),
+      request: PushModelRequest(model: model),
       cancelToken: cancelToken,
     );
 

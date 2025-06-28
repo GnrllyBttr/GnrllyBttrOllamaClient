@@ -18,7 +18,7 @@ part 'pull_status.g.dart';
 /// );
 /// ```
 @freezed
-class PullStatus with _$PullStatus {
+abstract class PullStatus with _$PullStatus {
   const factory PullStatus({
     /// The current status of the pull operation.
     required String status,

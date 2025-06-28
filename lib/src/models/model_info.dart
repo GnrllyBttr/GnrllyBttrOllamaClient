@@ -21,7 +21,7 @@ part 'model_info.g.dart';
 /// );
 /// ```
 @freezed
-class ModelInfo with _$ModelInfo {
+abstract class ModelInfo with _$ModelInfo {
   const factory ModelInfo({
     /// The modelfile of the model.
     required String modelfile,
