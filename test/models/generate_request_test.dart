@@ -22,19 +22,21 @@ void main() {
       template: withAllFields ? faker.lorem.sentence() : null,
       stream: withAllFields ? faker.randomGenerator.boolean() : null,
       raw: withAllFields ? faker.randomGenerator.boolean() : null,
-      keepAlive:
-          withAllFields ? faker.randomGenerator.integer(100).toString() : null,
+      keepAlive: withAllFields
+          ? faker.randomGenerator.integer(100).toString()
+          : null,
       context: withAllFields
           ? <int>[
               faker.randomGenerator.integer(100),
-              faker.randomGenerator.integer(100)
+              faker.randomGenerator.integer(100),
             ]
           : null,
     );
   }
 
-  Map<String, dynamic> generateGenerateRequestJson(
-      {bool withAllFields = false}) {
+  Map<String, dynamic> generateGenerateRequestJson({
+    bool withAllFields = false,
+  }) {
     final request = generateGenerateRequest(withAllFields: withAllFields);
     return <String, dynamic>{
       'model': request.model,

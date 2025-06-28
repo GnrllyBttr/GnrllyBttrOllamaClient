@@ -32,12 +32,12 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
-            <td class="headerCovTableEntry">15</td>
-            <td class="headerCovTableEntry">15</td>
+            <td class="headerCovTableEntry">16</td>
+            <td class="headerCovTableEntry">16</td>
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2025-02-03 21:37:14</td>
+            <td class="headerValue">2025-06-28 18:23:10</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">-</td>
@@ -68,32 +68,33 @@
 <span id="L6"><span class="lineNum">       6</span>              : // JsonSerializableGenerator</span>
 <span id="L7"><span class="lineNum">       7</span>              : // **************************************************************************</span>
 <span id="L8"><span class="lineNum">       8</span>              : </span>
-<span id="L9"><span class="lineNum">       9</span> <span class="tlaGNC">           5 : _$ChatMessageImpl _$$ChatMessageImplFromJson(Map&lt;String, dynamic&gt; json) =&gt;</span></span>
-<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">           5 :     _$ChatMessageImpl(</span></span>
-<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC">          10 :       role: $enumDecode(_$ChatMessageRoleEnumMap, json['role']),</span></span>
-<span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">           5 :       content: json['content'] as String,</span></span>
-<span id="L13"><span class="lineNum">      13</span>              :       images:</span>
-<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">           8 :           (json['images'] as List&lt;dynamic&gt;?)?.map((e) =&gt; e as String).toList(),</span></span>
-<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">           5 :       toolCalls: (json['tool_calls'] as List&lt;dynamic&gt;?)</span></span>
-<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC">           3 :           ?.map((e) =&gt; ToolCall.fromJson(e as Map&lt;String, dynamic&gt;))</span></span>
-<span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC">           1 :           .toList(),</span></span>
-<span id="L18"><span class="lineNum">      18</span>              :     );</span>
+<span id="L9"><span class="lineNum">       9</span> <span class="tlaGNC">          10 : _ChatMessage _$ChatMessageFromJson(Map&lt;String, dynamic&gt; json) =&gt; _ChatMessage(</span></span>
+<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">          10 :   role: $enumDecode(_$ChatMessageRoleEnumMap, json['role']),</span></span>
+<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC">           5 :   content: json['content'] as String,</span></span>
+<span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">           8 :   images: (json['images'] as List&lt;dynamic&gt;?)?.map((e) =&gt; e as String).toList(),</span></span>
+<span id="L13"><span class="lineNum">      13</span>              :   toolCalls:</span>
+<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">           5 :       (json['tool_calls'] as List&lt;dynamic&gt;?)</span></span>
+<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">           3 :           ?.map((e) =&gt; ToolCall.fromJson(e as Map&lt;String, dynamic&gt;))</span></span>
+<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC">           1 :           .toList(),</span></span>
+<span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC">           5 :   thinking: json['thinking'] as String?,</span></span>
+<span id="L18"><span class="lineNum">      18</span>              : );</span>
 <span id="L19"><span class="lineNum">      19</span>              : </span>
-<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">           5 : Map&lt;String, dynamic&gt; _$$ChatMessageImplToJson(_$ChatMessageImpl instance) =&gt;</span></span>
+<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">           5 : Map&lt;String, dynamic&gt; _$ChatMessageToJson(_ChatMessage instance) =&gt;</span></span>
 <span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">           5 :     &lt;String, dynamic&gt;{</span></span>
 <span id="L22"><span class="lineNum">      22</span> <span class="tlaGNC">          15 :       'role': _$ChatMessageRoleEnumMap[instance.role]!,</span></span>
 <span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC">          10 :       'content': instance.content,</span></span>
 <span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">           6 :       if (instance.images case final value?) 'images': value,</span></span>
 <span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC">           9 :       if (instance.toolCalls?.map((e) =&gt; e.toJson()).toList() case final value?)</span></span>
 <span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC">           1 :         'tool_calls': value,</span></span>
-<span id="L27"><span class="lineNum">      27</span>              :     };</span>
-<span id="L28"><span class="lineNum">      28</span>              : </span>
-<span id="L29"><span class="lineNum">      29</span>              : const _$ChatMessageRoleEnumMap = {</span>
-<span id="L30"><span class="lineNum">      30</span>              :   ChatMessageRole.system: 'system',</span>
-<span id="L31"><span class="lineNum">      31</span>              :   ChatMessageRole.user: 'user',</span>
-<span id="L32"><span class="lineNum">      32</span>              :   ChatMessageRole.assistant: 'assistant',</span>
-<span id="L33"><span class="lineNum">      33</span>              :   ChatMessageRole.tool: 'tool',</span>
-<span id="L34"><span class="lineNum">      34</span>              : };</span>
+<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">           6 :       if (instance.thinking case final value?) 'thinking': value,</span></span>
+<span id="L28"><span class="lineNum">      28</span>              :     };</span>
+<span id="L29"><span class="lineNum">      29</span>              : </span>
+<span id="L30"><span class="lineNum">      30</span>              : const _$ChatMessageRoleEnumMap = {</span>
+<span id="L31"><span class="lineNum">      31</span>              :   ChatMessageRole.system: 'system',</span>
+<span id="L32"><span class="lineNum">      32</span>              :   ChatMessageRole.user: 'user',</span>
+<span id="L33"><span class="lineNum">      33</span>              :   ChatMessageRole.assistant: 'assistant',</span>
+<span id="L34"><span class="lineNum">      34</span>              :   ChatMessageRole.tool: 'tool',</span>
+<span id="L35"><span class="lineNum">      35</span>              : };</span>
         </pre>
               </td>
             </tr>
@@ -102,7 +103,7 @@
 
           <table width="100%" border=0 cellspacing=0 cellpadding=0>
             <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
-            <tr><td class="versionInfo">Generated by: <a href="https://github.com//linux-test-project/lcov" target="_parent">LCOV version 2.3-1</a></td></tr>
+            <tr><td class="versionInfo">Generated by: <a href="https://github.com//linux-test-project/lcov" target="_parent">LCOV version 2.3.1-1</a></td></tr>
           </table>
           <br>
 

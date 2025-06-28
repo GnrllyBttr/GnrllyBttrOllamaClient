@@ -16,8 +16,9 @@ void main() {
     );
   }
 
-  Map<String, dynamic> generatePullModelRequestJson(
-      {bool withAllFields = false}) {
+  Map<String, dynamic> generatePullModelRequestJson({
+    bool withAllFields = false,
+  }) {
     final request = generatePullModelRequest(withAllFields: withAllFields);
 
     return <String, dynamic>{

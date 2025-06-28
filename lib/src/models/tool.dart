@@ -23,7 +23,7 @@ part 'tool.g.dart';
 /// );
 /// ```
 @freezed
-class Tool with _$Tool {
+abstract class Tool with _$Tool {
   const factory Tool({
     /// The type of the tool.
     required String type,

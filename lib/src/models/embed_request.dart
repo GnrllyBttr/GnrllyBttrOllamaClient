@@ -21,7 +21,7 @@ part 'embed_request.g.dart';
 /// );
 /// ```
 @freezed
-class EmbedRequest with _$EmbedRequest {
+abstract class EmbedRequest with _$EmbedRequest {
   const factory EmbedRequest({
     /// The name of the model to use.
     required String model,

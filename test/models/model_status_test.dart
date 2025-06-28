@@ -9,10 +9,7 @@ void main() {
   final faker = Faker();
 
   ModelDetails generateModelDetails() {
-    return ModelDetails(
-      format: faker.lorem.word(),
-      family: faker.lorem.word(),
-    );
+    return ModelDetails(format: faker.lorem.word(), family: faker.lorem.word());
   }
 
   ModelStatus generateModelStatus() {

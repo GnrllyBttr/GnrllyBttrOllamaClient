@@ -69,7 +69,7 @@ class CreateModelStreamFailedException extends GnrllyBttrOllamaClientException {
   ///
   /// - [message]: The error message describing the exception.
   const CreateModelStreamFailedException(String message)
-      : super(message: message);
+    : super(message: message);
 }
 
 /// Exception thrown when deleting a model fails.
@@ -126,7 +126,7 @@ class ListRunningModelsFailedException extends GnrllyBttrOllamaClientException {
   ///
   /// - [message]: The error message describing the exception.
   const ListRunningModelsFailedException(String message)
-      : super(message: message);
+    : super(message: message);
 }
 
 /// Exception thrown when pulling a model fails.
@@ -143,7 +143,7 @@ class PullModelStreamFailedException extends GnrllyBttrOllamaClientException {
   ///
   /// - [message]: The error message describing the exception.
   const PullModelStreamFailedException(String message)
-      : super(message: message);
+    : super(message: message);
 }
 
 /// Exception thrown when pushing a model fails.
@@ -160,7 +160,7 @@ class PushModelStreamFailedException extends GnrllyBttrOllamaClientException {
   ///
   /// - [message]: The error message describing the exception.
   const PushModelStreamFailedException(String message)
-      : super(message: message);
+    : super(message: message);
 }
 
 /// Exception thrown when showing a model fails.

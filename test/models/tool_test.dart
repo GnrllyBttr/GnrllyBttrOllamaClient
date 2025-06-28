@@ -64,10 +64,7 @@ void main() {
     group('When comparing Tool instances', () {
       test('Then identical instances should be equal', () {
         final tool1 = generateTool();
-        final tool2 = Tool(
-          type: tool1.type,
-          function: tool1.function,
-        );
+        final tool2 = Tool(type: tool1.type, function: tool1.function);
 
         expect(tool1, equals(tool2));
       });

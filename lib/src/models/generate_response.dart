@@ -18,7 +18,7 @@ part 'generate_response.g.dart';
 /// );
 /// ```
 @freezed
-class GenerateResponse with _$GenerateResponse {
+abstract class GenerateResponse with _$GenerateResponse {
   const factory GenerateResponse({
     /// The name of the model used.
     required String model,

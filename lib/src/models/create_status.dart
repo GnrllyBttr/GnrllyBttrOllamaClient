@@ -18,7 +18,7 @@ part 'create_status.g.dart';
 /// );
 /// ```
 @freezed
-class CreateStatus with _$CreateStatus {
+abstract class CreateStatus with _$CreateStatus {
   const factory CreateStatus({
     /// The current status of the creation process.
     required String status,

@@ -27,7 +27,7 @@ part 'chat_request.g.dart';
 /// );
 /// ```
 @freezed
-class ChatRequest with _$ChatRequest {
+abstract class ChatRequest with _$ChatRequest {
   const factory ChatRequest({
     /// The name of the model to use.
     required String model,
@@ -50,6 +50,9 @@ class ChatRequest with _$ChatRequest {
 
     /// Keep-alive duration for the request (default: 5m).
     @JsonKey(name: 'keep_alive', includeIfNull: false) String? keepAlive,
+
+    /// Whether the model should 'think' before responding (for thinking models).
+    @JsonKey(includeIfNull: false) bool? think,
   }) = _ChatRequest;
 
   /// Creates a [ChatRequest] instance from a JSON map.

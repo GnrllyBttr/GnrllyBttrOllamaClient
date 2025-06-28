@@ -16,7 +16,7 @@ part 'function_call.g.dart';
 /// );
 /// ```
 @freezed
-class FunctionCall with _$FunctionCall {
+abstract class FunctionCall with _$FunctionCall {
   const factory FunctionCall({
     /// The name of the function.
     required String name,

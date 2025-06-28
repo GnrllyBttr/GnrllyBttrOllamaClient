@@ -9,15 +9,11 @@ void main() {
   final faker = Faker();
 
   VersionResponse generateVersionResponse() {
-    return VersionResponse(
-      version: faker.lorem.word(),
-    );
+    return VersionResponse(version: faker.lorem.word());
   }
 
   Map<String, dynamic> generateVersionResponseJson() {
-    return <String, dynamic>{
-      'version': faker.lorem.word(),
-    };
+    return <String, dynamic>{'version': faker.lorem.word()};
   }
 
   group('Given a VersionResponse instance', () {

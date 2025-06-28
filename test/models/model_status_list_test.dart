@@ -9,10 +9,7 @@ void main() {
   final faker = Faker();
 
   ModelDetails generateModelDetails() {
-    return ModelDetails(
-      format: faker.lorem.word(),
-      family: faker.lorem.word(),
-    );
+    return ModelDetails(format: faker.lorem.word(), family: faker.lorem.word());
   }
 
   ModelStatus generateModelStatus() {
@@ -81,10 +78,7 @@ void main() {
           models: modelStatusList1.models,
         );
 
-        expect(
-          modelStatusList1,
-          equals(modelStatusList2),
-        );
+        expect(modelStatusList1, equals(modelStatusList2));
       });
 
       test('Then instances with different values should not be equal', () {

@@ -13,3 +13,8 @@ pubspec.lock
 .fvm/
 
 .DS_Store
+
+# Generated files
+*.g.dart
+*.freezed.dart
+*.mocks.dart

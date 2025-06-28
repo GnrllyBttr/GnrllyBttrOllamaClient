@@ -21,7 +21,7 @@ part 'generate_request.g.dart';
 /// );
 /// ```
 @freezed
-class GenerateRequest with _$GenerateRequest {
+abstract class GenerateRequest with _$GenerateRequest {
   const factory GenerateRequest({
     /// The name of the model to use.
     required String model,
@@ -58,6 +58,9 @@ class GenerateRequest with _$GenerateRequest {
 
     /// A list of context tokens (deprecated).
     @JsonKey(includeIfNull: false) List<int>? context,
+
+    /// Whether the model should 'think' before responding (for thinking models).
+    @JsonKey(includeIfNull: false) bool? think,
   }) = _GenerateRequest;
 
   /// Creates a [GenerateRequest] instance from a JSON map.

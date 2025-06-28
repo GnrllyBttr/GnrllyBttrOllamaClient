@@ -32,12 +32,12 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
-            <td class="headerCovTableEntry">17</td>
-            <td class="headerCovTableEntry">17</td>
+            <td class="headerCovTableEntry">16</td>
+            <td class="headerCovTableEntry">16</td>
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2025-02-03 21:37:14</td>
+            <td class="headerValue">2025-06-28 18:23:10</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">-</td>
@@ -68,26 +68,27 @@
 <span id="L6"><span class="lineNum">       6</span>              : // JsonSerializableGenerator</span>
 <span id="L7"><span class="lineNum">       7</span>              : // **************************************************************************</span>
 <span id="L8"><span class="lineNum">       8</span>              : </span>
-<span id="L9"><span class="lineNum">       9</span> <span class="tlaGNC">           7 : _$ModelDetailsImpl _$$ModelDetailsImplFromJson(Map&lt;String, dynamic&gt; json) =&gt;</span></span>
-<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">           7 :     _$ModelDetailsImpl(</span></span>
+<span id="L9"><span class="lineNum">       9</span> <span class="tlaGNC">           7 : _ModelDetails _$ModelDetailsFromJson(Map&lt;String, dynamic&gt; json) =&gt;</span></span>
+<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">           7 :     _ModelDetails(</span></span>
 <span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC">           7 :       format: json['format'] as String,</span></span>
 <span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">           7 :       family: json['family'] as String,</span></span>
-<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">           7 :       families: (json['families'] as List&lt;dynamic&gt;?)</span></span>
-<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">           2 :           ?.map((e) =&gt; e as String)</span></span>
-<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">           1 :           .toList(),</span></span>
-<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC">           7 :       parameterSize: json['parameter_size'] as String?,</span></span>
-<span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC">           7 :       quantizationLevel: json['quantization_level'] as String?,</span></span>
-<span id="L18"><span class="lineNum">      18</span>              :     );</span>
-<span id="L19"><span class="lineNum">      19</span>              : </span>
-<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">           7 : Map&lt;String, dynamic&gt; _$$ModelDetailsImplToJson(_$ModelDetailsImpl instance) =&gt;</span></span>
-<span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">           7 :     &lt;String, dynamic&gt;{</span></span>
-<span id="L22"><span class="lineNum">      22</span> <span class="tlaGNC">          14 :       'format': instance.format,</span></span>
-<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC">          14 :       'family': instance.family,</span></span>
-<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">           8 :       if (instance.families case final value?) 'families': value,</span></span>
-<span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC">           8 :       if (instance.parameterSize case final value?) 'parameter_size': value,</span></span>
-<span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC">           7 :       if (instance.quantizationLevel case final value?)</span></span>
-<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">           1 :         'quantization_level': value,</span></span>
-<span id="L28"><span class="lineNum">      28</span>              :     };</span>
+<span id="L13"><span class="lineNum">      13</span>              :       families:</span>
+<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">           7 :           (json['families'] as List&lt;dynamic&gt;?)</span></span>
+<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">           2 :               ?.map((e) =&gt; e as String)</span></span>
+<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC">           1 :               .toList(),</span></span>
+<span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC">           7 :       parameterSize: json['parameter_size'] as String?,</span></span>
+<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">           7 :       quantizationLevel: json['quantization_level'] as String?,</span></span>
+<span id="L19"><span class="lineNum">      19</span>              :     );</span>
+<span id="L20"><span class="lineNum">      20</span>              : </span>
+<span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">           7 : Map&lt;String, dynamic&gt; _$ModelDetailsToJson(</span></span>
+<span id="L22"><span class="lineNum">      22</span>              :   _ModelDetails instance,</span>
+<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC">           7 : ) =&gt; &lt;String, dynamic&gt;{</span></span>
+<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">          14 :   'format': instance.format,</span></span>
+<span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC">          14 :   'family': instance.family,</span></span>
+<span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC">           8 :   if (instance.families case final value?) 'families': value,</span></span>
+<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">           8 :   if (instance.parameterSize case final value?) 'parameter_size': value,</span></span>
+<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">           8 :   if (instance.quantizationLevel case final value?) 'quantization_level': value,</span></span>
+<span id="L29"><span class="lineNum">      29</span>              : };</span>
         </pre>
               </td>
             </tr>
@@ -96,7 +97,7 @@
 
           <table width="100%" border=0 cellspacing=0 cellpadding=0>
             <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
-            <tr><td class="versionInfo">Generated by: <a href="https://github.com//linux-test-project/lcov" target="_parent">LCOV version 2.3-1</a></td></tr>
+            <tr><td class="versionInfo">Generated by: <a href="https://github.com//linux-test-project/lcov" target="_parent">LCOV version 2.3.1-1</a></td></tr>
           </table>
           <br>
 

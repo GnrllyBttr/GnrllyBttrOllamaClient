@@ -24,14 +24,10 @@ void main() {
       totalDuration: withAllFields ? faker.randomGenerator.integer(1000) : null,
       loadDuration: withAllFields ? faker.randomGenerator.integer(1000) : null,
       promptEvalCount: withAllFields
-          ? faker.randomGenerator.integer(
-              100,
-            )
+          ? faker.randomGenerator.integer(100)
           : null,
       promptEvalDuration: withAllFields
-          ? faker.randomGenerator.integer(
-              1000,
-            )
+          ? faker.randomGenerator.integer(1000)
           : null,
       evalCount: withAllFields ? faker.randomGenerator.integer(100) : null,
       evalDuration: withAllFields ? faker.randomGenerator.integer(1000) : null,

@@ -17,11 +17,7 @@ void main() {
           ? ModelOptions(temperature: faker.randomGenerator.decimal())
           : null,
       keepAlive: withAllFields
-          ? faker.randomGenerator
-              .integer(
-                100,
-              )
-              .toString()
+          ? faker.randomGenerator.integer(100).toString()
           : null,
     );
   }

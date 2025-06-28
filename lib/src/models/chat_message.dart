@@ -21,7 +21,7 @@ part 'chat_message.g.dart';
 /// );
 /// ```
 @freezed
-class ChatMessage with _$ChatMessage {
+abstract class ChatMessage with _$ChatMessage {
   const factory ChatMessage({
     /// The role of the message (system, user, assistant, or tool).
     required ChatMessageRole role,
@@ -35,6 +35,9 @@ class ChatMessage with _$ChatMessage {
     /// A list of tool calls that the model wants to use.
     @JsonKey(name: 'tool_calls', includeIfNull: false)
     List<ToolCall>? toolCalls,
+
+    /// The model's thinking process (for thinking models).
+    @JsonKey(includeIfNull: false) String? thinking,
   }) = _ChatMessage;
 
   /// Creates a [ChatMessage] instance from a JSON map.

@@ -18,7 +18,7 @@ part 'pull_model_request.g.dart';
 /// );
 /// ```
 @freezed
-class PullModelRequest with _$PullModelRequest {
+abstract class PullModelRequest with _$PullModelRequest {
   const factory PullModelRequest({
     /// The name of the model to pull.
     required String model,

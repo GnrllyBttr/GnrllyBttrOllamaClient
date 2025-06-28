@@ -18,14 +18,16 @@ void main() {
       });
     });
 
-    group('When creating an HttpCancelToken with initial cancellation state',
-        () {
-      test('Then it should store the provided cancellation state', () {
-        final token = generateHttpCancelToken(isCancelled: true);
+    group(
+      'When creating an HttpCancelToken with initial cancellation state',
+      () {
+        test('Then it should store the provided cancellation state', () {
+          final token = generateHttpCancelToken(isCancelled: true);
 
-        expect(token.isCancelled, isTrue);
-      });
-    });
+          expect(token.isCancelled, isTrue);
+        });
+      },
+    );
 
     group('When cancelling an HttpCancelToken', () {
       test('Then it should set the isCancelled flag to true', () {

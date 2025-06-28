@@ -21,7 +21,7 @@ part 'create_model_request.g.dart';
 /// );
 /// ```
 @freezed
-class CreateModelRequest with _$CreateModelRequest {
+abstract class CreateModelRequest with _$CreateModelRequest {
   const factory CreateModelRequest({
     /// The name of the model to create.
     required String model,

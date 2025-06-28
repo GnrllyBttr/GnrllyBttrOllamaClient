@@ -16,7 +16,7 @@ part 'copy_model_request.g.dart';
 /// );
 /// ```
 @freezed
-class CopyModelRequest with _$CopyModelRequest {
+abstract class CopyModelRequest with _$CopyModelRequest {
   const factory CopyModelRequest({
     /// The source model to copy.
     required String source,

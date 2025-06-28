@@ -47,17 +47,21 @@ void main() {
       });
     });
 
-    group('When creating an HttpOptions with custom headers and responseType',
-        () {
-      test('Then it should store all provided values correctly', () {
-        final headers = {'Authorization': 'Bearer token'};
-        final responseType = 'json';
-        final options =
-            HttpOptions(headers: headers, responseType: responseType);
+    group(
+      'When creating an HttpOptions with custom headers and responseType',
+      () {
+        test('Then it should store all provided values correctly', () {
+          final headers = {'Authorization': 'Bearer token'};
+          final responseType = 'json';
+          final options = HttpOptions(
+            headers: headers,
+            responseType: responseType,
+          );
 
-        expect(options.headers, equals(headers));
-        expect(options.responseType, equals(responseType));
-      });
-    });
+          expect(options.headers, equals(headers));
+          expect(options.responseType, equals(responseType));
+        });
+      },
+    );
   });
 }

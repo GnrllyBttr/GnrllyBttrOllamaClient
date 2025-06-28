@@ -26,7 +26,7 @@ part 'model_list.g.dart';
 /// );
 /// ```
 @freezed
-class ModelList with _$ModelList {
+abstract class ModelList with _$ModelList {
   const factory ModelList({
     /// The list of models.
     required List<Model> models,
